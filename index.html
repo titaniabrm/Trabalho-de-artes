@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0908" />
+
+  <title>Olhos Sempre Abertos — Shooter_sz | Apresentação</title>
+  <meta name="description" content="Apresentação interativa sobre a música 'Olhos Sempre Abertos', de Shooter_sz — uma character song sobre Arthur Cervero, do universo Ordem Paranormal." />
+  <meta name="author" content="Apresentação criada por fãs" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Olhos Sempre Abertos — Shooter_sz" />
+  <meta property="og:description" content="Apresentação interativa sobre a música 'Olhos Sempre Abertos', de Shooter_sz." />
+  <meta property="og:locale" content="pt_BR" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👁️</text></svg>" />
+
+  <!-- Tipografia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/slides.css" />
+</head>
+<body>
+
+  <!-- ============ CENÁRIO DE FUNDO (parallax) ============ -->
+  <div class="stage" aria-hidden="true">
+    <div class="stage__glow stage__glow--gold"></div>
+    <div class="stage__glow stage__glow--jade"></div>
+    <div class="stage__glow stage__glow--ember"></div>
+    <div class="stage__rays"></div>
+    <div class="stage__vignette"></div>
+    <canvas class="stage__particles" id="particles"></canvas>
+    <div class="stage__grain"></div>
+  </div>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <header class="hud" id="hud">
+    <div class="hud__brand">
+      <span class="hud__eye" aria-hidden="true"></span>
+      <span class="hud__title">Olhos Sempre Abertos</span>
+      <span class="hud__sep" aria-hidden="true">/</span>
+      <span class="hud__artist">Shooter_sz</span>
+    </div>
+    <div class="hud__meta">
+      <span class="hud__counter" id="counter"><b id="counterCurrent">1</b><i>/</i><span id="counterTotal">8</span></span>
+    </div>
+    <div class="hud__progress" role="progressbar" aria-label="Progresso da apresentação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="deckProgress">
+      <span class="hud__progressFill" id="deckProgressFill"></span>
+    </div>
+  </header>
+
+  <!-- ============ SLIDES ============ -->
+  <main class="deck" id="deck" data-dir="next">
+    <!-- Os slides são montados por js/slides.js a partir de js/data.js -->
+    <noscript>
+      <div class="noscript">
+        <h1>Olhos Sempre Abertos — Shooter_sz</h1>
+        <p>
+          Esta apresentação precisa de JavaScript para funcionar.
+          Ative-o no navegador ou ouça a música diretamente:
+        </p>
+        <p><a href="https://open.spotify.com/intl-pt/track/1yxSZQfNaJv5eUl8xZMVvz">Abrir no Spotify</a></p>
+      </div>
+    </noscript>
+  </main>
+
+  <!-- Anúncio de mudança de slide para leitores de tela -->
+  <p class="sr-only" id="liveRegion" aria-live="polite"></p>
+
+  <!-- ============ NAVEGAÇÃO ============ -->
+  <nav class="nav" id="nav" aria-label="Navegação da apresentação">
+    <button class="nav__btn" id="prevBtn" type="button" aria-label="Slide anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+      <span>Anterior</span>
+    </button>
+
+    <ol class="dots" id="dots" aria-label="Ir para um slide"></ol>
+
+    <button class="nav__btn nav__btn--primary" id="nextBtn" type="button" aria-label="Próximo slide">
+      <span>Próximo</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+    </button>
+  </nav>
+
+  <div class="keyhint" id="keyhint" aria-hidden="true">
+    Use <kbd>←</kbd> <kbd>→</kbd> ou deslize para navegar
+  </div>
+
+  <!-- Aviso de que o slide atual continua abaixo -->
+  <div class="scrollcue" id="scrollcue" aria-hidden="true">
+    <span>role para ver mais</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="js/data.js"></script>
+  <script src="js/slides.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/deck.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- API oficial de incorporação do Spotify (carregada depois de player.js) -->
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</body>
+</html>

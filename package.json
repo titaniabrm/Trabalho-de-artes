@@ -1,0 +1,18 @@
+{
+  "name": "olhos-sempre-abertos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Apresentação interativa sobre a música 'Olhos Sempre Abertos', de Shooter_sz.",
+  "keywords": [
+    "apresentacao",
+    "musica",
+    "slideshow",
+    "shooter_sz",
+    "ordem-paranormal"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx --yes serve . --listen 3000",
+    "start": "npx --yes serve . --listen 3000"
+  }
+}

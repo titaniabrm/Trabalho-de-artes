@@ -1,0 +1,28 @@
+# Dependências
+node_modules/
+
+# Build / deploy
+.vercel
+dist/
+.cache/
+
+# Ambiente (nunca versione chaves ou tokens)
+.env
+.env.*
+!.env.example
+
+# Sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Mídia local opcional (não distribua áudio protegido)
+assets/audio.mp3
+assets/*.mp3
+assets/*.wav
