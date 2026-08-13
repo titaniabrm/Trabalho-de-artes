@@ -1,6 +1,10 @@
 /* =========================================================
    SLIDES — cada slide é uma função que devolve o seu HTML.
    O conteúdo vem sempre de js/data.js.
+
+   1. capa    — arte, título e chamada
+   2. musica  — ficha, contexto, significado, análise e momentos
+   3. ouvir   — player oficial e encerramento
    ========================================================= */
 
 (function () {
@@ -30,17 +34,6 @@
     );
   }
 
-  /** Lista de fontes consultadas. */
-  function sources(list) {
-    if (!list || !list.length) return "";
-    var links = list
-      .map(function (s) {
-        return '<a href="' + s.url + '" target="_blank" rel="noopener noreferrer">' + s.label + "</a>";
-      })
-      .join(" · ");
-    return '<p class="note" data-reveal="fade"' + d(9) + ">Fontes: " + links + "</p>";
-  }
-
   /** Cabeçalho padrão dos slides internos. */
   function header(cfg) {
     return (
@@ -50,6 +43,11 @@
       (cfg.lede ? '<p class="slide-lede" data-reveal' + d(1) + ">" + cfg.lede + "</p>" : "") +
       "</header>"
     );
+  }
+
+  /** Subtítulo de bloco dentro de um slide longo. */
+  function subhead(text, delay) {
+    return '<h3 class="subhead" data-reveal="fade"' + d(delay || 0) + ">" + text + "</h3>";
   }
 
   /* =========================================================
@@ -92,22 +90,21 @@
             "</a>" +
           "</div>" +
         "</div>" +
-
-        '<div class="cover__scroll" aria-hidden="true"><span></span></div>' +
       "</div>"
     );
   }
 
   /* =========================================================
-     SLIDE 2 — SOBRE A MÚSICA
+     SLIDE 2 — A MÚSICA
      ========================================================= */
-  function renderAbout() {
-    var a = D.about;
+  function renderStory() {
+    var s = D.story;
 
-    var facts = a.facts
+    /* --- Ficha técnica --- */
+    var facts = s.facts
       .map(function (f, i) {
         return (
-          '<li class="fact" data-reveal="zoom"' + d(i, 0.06, 0.25) + ">" +
+          '<li class="fact" data-reveal="zoom"' + d(i, 0.06, 0.2) + ">" +
             '<span class="fact__icon" aria-hidden="true">' + f.icon + "</span>" +
             '<span class="fact__label">' + f.label + "</span>" +
             '<strong class="fact__value">' + f.value + "</strong>" +
@@ -116,60 +113,23 @@
       })
       .join("");
 
-    var blocks = a.blocks
+    /* --- Contexto: música e artista --- */
+    var context = s.context
       .map(function (b, i) {
         return (
-          '<article class="card" data-reveal' + d(i, 0.1, 0.4) + " data-glow>" +
-            '<h3 class="card__title">' + b.title + "</h3>" +
-            '<p class="card__text">' + b.text + "</p>" +
-          "</article>"
-        );
-      })
-      .join("");
-
-    return (
-      '<div class="slide__inner stack-lg">' +
-        header(a) +
-        '<ul class="facts">' + facts + "</ul>" +
-        '<div class="grid grid--3">' + blocks + "</div>" +
-        sources(a.sources) +
-      "</div>"
-    );
-  }
-
-  /* =========================================================
-     SLIDE 3 — SOBRE O ARTISTA
-     ========================================================= */
-  function renderArtist() {
-    var a = D.artist;
-
-    var stats = a.stats
-      .map(function (s, i) {
-        return (
-          '<li class="stat" data-reveal="zoom"' + d(i, 0.09, 0.25) + ">" +
-            '<b class="stat__value">' + s.value + "</b>" +
-            '<span class="stat__label">' + s.label + "</span>" +
-          "</li>"
-        );
-      })
-      .join("");
-
-    var blocks = a.blocks
-      .map(function (b, i) {
-        return (
-          '<article class="card" data-reveal' + d(i, 0.1, 0.35) + " data-glow>" +
+          '<article class="card" data-reveal' + d(i, 0.1, 0.3) + " data-glow>" +
             '<span class="icon-badge" aria-hidden="true">' + b.icon + "</span>" +
-            '<h3 class="card__title">' + b.title + "</h3>" +
+            '<h4 class="card__title">' + b.title + "</h4>" +
             '<p class="card__text">' + b.text + "</p>" +
           "</article>"
         );
       })
       .join("");
 
-    var works = a.works
+    var works = s.works
       .map(function (w, i) {
         return (
-          '<li class="work" data-reveal="zoom"' + d(i, 0.045, 0.5) + ">" +
+          '<li class="work" data-reveal="zoom"' + d(i, 0.05, 0.45) + ">" +
             '<span class="work__song">' + w.song + "</span>" +
             '<span class="work__char">' + w.char + "</span>" +
           "</li>"
@@ -177,81 +137,42 @@
       })
       .join("");
 
-    return (
-      '<div class="slide__inner stack-lg">' +
-        header(a) +
-        '<ul class="stats">' + stats + "</ul>" +
-        '<div class="grid grid--3">' + blocks + "</div>" +
-        '<section class="works" data-reveal' + d(5) + ">" +
-          '<h3 class="works__title">Outros trabalhos</h3>' +
-          '<ul class="works__list">' + works + "</ul>" +
-        "</section>" +
-        '<p class="note" data-reveal="fade"' + d(8) + ">" + a.disclaimer + "</p>" +
-        sources(a.sources) +
-      "</div>"
-    );
-  }
-
-  /* =========================================================
-     SLIDE 4 — SIGNIFICADO
-     ========================================================= */
-  function renderMeaning() {
-    var m = D.meaning;
-
-    var themes = m.themes
+    /* --- Significado --- */
+    var themes = s.themes
       .map(function (t, i) {
         return (
-          '<article class="card theme" data-reveal' + d(i, 0.07, 0.3) + " data-glow>" +
+          '<article class="card theme" data-reveal' + d(i, 0.07, 0.25) + " data-glow>" +
             '<span class="icon-badge" aria-hidden="true">' + t.icon + "</span>" +
-            '<h3 class="card__title">' + t.title + "</h3>" +
+            '<h4 class="card__title">' + t.title + "</h4>" +
             '<p class="card__text">' + t.text + "</p>" +
           "</article>"
         );
       })
       .join("");
 
-    var feelings = m.feelings
+    var feelings = s.feelings
       .map(function (f, i) {
-        return '<li class="chip" data-reveal="zoom"' + d(i, 0.06, 0.7) + ">" + f + "</li>";
+        return '<li class="chip" data-reveal="zoom"' + d(i, 0.06, 0.4) + ">" + f + "</li>";
       })
       .join("");
 
-    return (
-      '<div class="slide__inner stack-lg">' +
-        header(m) +
-        '<div class="grid grid--3">' + themes + "</div>" +
-        '<section class="feelings" data-reveal' + d(7) + ">" +
-          '<h3 class="feelings__title">Sentimentos que a música transmite</h3>' +
-          '<ul class="chips">' + feelings + "</ul>" +
-        "</section>" +
-        '<p class="note" data-reveal="fade"' + d(9) + ">" + m.disclaimer + "</p>" +
-      "</div>"
-    );
-  }
-
-  /* =========================================================
-     SLIDE 5 — ANÁLISE
-     ========================================================= */
-  function renderAnalysis() {
-    var an = D.analysis;
-
-    var pillars = an.pillars
+    /* --- Análise --- */
+    var pillars = s.pillars
       .map(function (p, i) {
         return (
-          '<article class="card pillar" data-reveal' + d(i, 0.08, 0.25) + " data-glow>" +
+          '<article class="card pillar" data-reveal' + d(i, 0.08, 0.2) + " data-glow>" +
             '<span class="icon-badge" aria-hidden="true">' + p.icon + "</span>" +
             '<span class="pillar__label">' + p.label + "</span>" +
-            '<h3 class="pillar__value">' + p.value + "</h3>" +
-            '<p class="card__text">' + p.text + "</p>" +
+            '<h4 class="pillar__value">' + p.value + "</h4>" +
           "</article>"
         );
       })
       .join("");
 
-    var bars = an.emotions
+    var bars = s.emotions
       .map(function (e, i) {
         return (
-          '<li class="meter" data-reveal="left"' + d(i, 0.08, 0.35) + ">" +
+          '<li class="meter" data-reveal="left"' + d(i, 0.08, 0.3) + ">" +
             '<span class="meter__label">' + e.label + "</span>" +
             '<span class="meter__track">' +
               '<span class="meter__fill" style="--val:' + e.value + '%;--i:' + i + '"></span>' +
@@ -262,40 +183,105 @@
       })
       .join("");
 
-    var cards = an.highlights
+    var highlights = s.highlights
       .map(function (h, i) {
         return (
-          '<article class="card" data-reveal' + d(i, 0.08, 0.45) + " data-glow>" +
+          '<article class="card" data-reveal' + d(i, 0.08, 0.35) + " data-glow>" +
             '<span class="icon-badge" aria-hidden="true">' + h.icon + "</span>" +
-            '<h3 class="card__title">' + h.title + "</h3>" +
+            '<h4 class="card__title">' + h.title + "</h4>" +
             '<p class="card__text">' + h.text + "</p>" +
           "</article>"
         );
       })
       .join("");
 
+    /* --- Momentos --- */
+    var moments = s.moments
+      .map(function (it, i) {
+        return (
+          '<li class="moment" data-reveal="left"' + d(i, 0.09, 0.25) + ">" +
+            '<span class="moment__time">' + it.time + "</span>" +
+            '<div class="moment__body card" data-glow>' +
+              '<h4 class="moment__title">' + it.title + "</h4>" +
+              '<p class="moment__what">' + it.what + "</p>" +
+              '<p class="moment__why"><span>Por que importa</span>' + it.why + "</p>" +
+            "</div>" +
+          "</li>"
+        );
+      })
+      .join("");
+
     return (
       '<div class="slide__inner stack-lg">' +
-        header(an) +
-        '<div class="grid grid--4">' + pillars + "</div>" +
-        '<div class="charts">' +
-          '<section class="card chart" data-reveal="left"' + d(3) + ">" +
-            '<h3 class="chart__title">Intensidade das emoções</h3>' +
-            '<ul class="meters">' + bars + "</ul>" +
+        header(s) +
+
+        '<ul class="facts">' + facts + "</ul>" +
+
+        '<section class="block">' +
+          '<div class="grid grid--2">' + context + "</div>" +
+          '<section class="works" data-reveal' + d(4) + ">" +
+            '<h4 class="works__title">Outras faixas do artista</h4>' +
+            '<ul class="works__list">' + works + "</ul>" +
           "</section>" +
-          '<section class="card chart" data-reveal="right"' + d(4) + ">" +
-            '<h3 class="chart__title">' + an.arc.caption + "</h3>" +
-            arcChart(an.arc.points) +
+        "</section>" +
+
+        '<section class="block">' +
+          subhead(s.themesTitle, 0) +
+          '<div class="grid grid--4">' + themes + "</div>" +
+          '<section class="feelings" data-reveal' + d(5) + ">" +
+            '<h4 class="feelings__title">' + s.feelingsTitle + "</h4>" +
+            '<ul class="chips">' + feelings + "</ul>" +
           "</section>" +
-        "</div>" +
-        '<div class="grid grid--4">' + cards + "</div>" +
-        '<p class="note" data-reveal="fade"' + d(9) + ">" + an.disclaimer + "</p>" +
+        "</section>" +
+
+        '<section class="block">' +
+          subhead(s.analysisTitle, 0) +
+          '<div class="grid grid--3">' + pillars + "</div>" +
+          '<div class="charts">' +
+            '<section class="card chart" data-reveal="left"' + d(2) + ">" +
+              '<h4 class="chart__title">Intensidade das emoções</h4>' +
+              '<ul class="meters">' + bars + "</ul>" +
+            "</section>" +
+            '<section class="card chart" data-reveal="right"' + d(3) + ">" +
+              '<h4 class="chart__title">' + s.arc.caption + "</h4>" +
+              arcChart(s.arc) +
+            "</section>" +
+          "</div>" +
+          '<div class="grid grid--3">' + highlights + "</div>" +
+        "</section>" +
+
+        '<section class="block">' +
+          subhead(s.momentsTitle, 0) +
+          '<p class="block__lede" data-reveal="fade"' + d(1) + ">" + s.momentsLede + "</p>" +
+          '<ol class="moments">' + moments + "</ol>" +
+          '<div class="moments__foot" data-reveal="fade"' + d(6) + ">" +
+            '<p class="note">' + s.disclaimer + "</p>" +
+            '<a class="btn btn--ghost" href="' + T.lyricsUrl + '" target="_blank" rel="noopener noreferrer">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>' +
+              "Ver a letra oficial" +
+            "</a>" +
+          "</div>" +
+        "</section>" +
+
+        sources(s.sources) +
       "</div>"
     );
   }
 
+  /** Lista de fontes consultadas. */
+  function sources(list) {
+    if (!list || !list.length) return "";
+    var links = list
+      .map(function (s) {
+        return '<a href="' + s.url + '" target="_blank" rel="noopener noreferrer">' + s.label + "</a>";
+      })
+      .join(" · ");
+    return '<p class="note" data-reveal="fade"' + d(8) + ">Fontes: " + links + "</p>";
+  }
+
   /** Gráfico de linha (SVG puro) do arco emocional. */
-  function arcChart(points) {
+  function arcChart(arc) {
+    var points = arc.points;
     var W = 720, H = 260, padX = 34, padTop = 26, padBottom = 52;
     var n = points.length;
     var stepX = (W - padX * 2) / (n - 1);
@@ -349,7 +335,7 @@
     return (
       '<div class="chart__wrap">' +
         '<svg class="chart__svg" viewBox="0 0 ' + W + " " + H + '" role="img" ' +
-             'aria-label="' + D.analysis.arc.caption + '" preserveAspectRatio="xMidYMid meet">' +
+             'aria-label="' + arc.caption + '" preserveAspectRatio="xMidYMid meet">' +
           "<defs>" +
             '<linearGradient id="arcFill" x1="0" y1="0" x2="0" y2="1">' +
               '<stop offset="0%" stop-color="rgba(224,169,85,.42)"/>' +
@@ -372,63 +358,27 @@
   }
 
   /* =========================================================
-     SLIDE 6 — MOMENTOS
+     SLIDE 3 — OUVIR E ENCERRAMENTO
      ========================================================= */
-  function renderMoments() {
-    var m = D.moments;
-
-    var items = m.items
-      .map(function (it, i) {
-        return (
-          '<li class="moment" data-reveal="left"' + d(i, 0.09, 0.3) + ">" +
-            '<span class="moment__time">' + it.time + "</span>" +
-            '<div class="moment__body card" data-glow>' +
-              '<h3 class="moment__title">' + it.title + "</h3>" +
-              '<p class="moment__what">' + it.what + "</p>" +
-              '<p class="moment__why"><span>Por que importa</span>' + it.why + "</p>" +
-            "</div>" +
-          "</li>"
-        );
-      })
-      .join("");
-
-    return (
-      '<div class="slide__inner stack-lg">' +
-        header(m) +
-        '<ol class="moments">' + items + "</ol>" +
-        '<div class="moments__foot" data-reveal="fade"' + d(8) + ">" +
-          '<p class="note">' + m.copyright + "</p>" +
-          '<a class="btn btn--ghost" href="' + T.lyricsUrl + '" target="_blank" rel="noopener noreferrer">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>' +
-            "Ver a letra oficial" +
-          "</a>" +
-        "</div>" +
-      "</div>"
-    );
-  }
-
-  /* =========================================================
-     SLIDE 7 — PLAYER
-     ========================================================= */
-  function renderPlayer() {
-    var p = D.player;
+  function renderFinale() {
+    var f = D.finale;
 
     var eq = "";
     for (var i = 0; i < 5; i++) {
       eq += '<i style="--i:' + i + '"></i>';
     }
 
-    var tips = p.tips
+    var tips = f.tips
       .map(function (t, i) {
-        return '<li data-reveal="fade"' + d(i, 0.07, 0.6) + ">" + t + "</li>";
+        return '<li data-reveal="fade"' + d(i, 0.07, 0.5) + ">" + t + "</li>";
       })
       .join("");
 
     return (
       '<div class="slide__inner stack-lg">' +
-        header(p) +
+        header(f) +
 
-        '<section class="player card" data-reveal="zoom"' + d(2) + " data-glow>" +
+        '<section class="player card" id="playerCard" data-reveal="zoom"' + d(2) + " data-glow>" +
           '<div class="player__art">' +
             coverImg("player__cover", "Capa de " + T.title) +
             '<span class="player__eq" id="playerEq" aria-hidden="true">' + eq + "</span>" +
@@ -487,30 +437,11 @@
             "</a>" +
           "</div>" +
         "</div>" +
-      "</div>"
-    );
-  }
 
-  /* =========================================================
-     SLIDE 8 — ENCERRAMENTO
-     ========================================================= */
-  function renderOutro() {
-    var o = D.outro;
-
-    return (
-      '<div class="slide__inner outro">' +
-        '<div class="outro__art" data-reveal="zoom" data-tilt>' +
-          coverImg("outro__cover", "Capa de " + T.title) +
-          '<span class="cover__halo" aria-hidden="true"></span>' +
-        "</div>" +
-
-        '<div class="outro__text">' +
-          '<span class="eyebrow" data-reveal="fade">' + o.eyebrow + "</span>" +
-          '<h2 class="outro__title" data-reveal data-split>' + o.title + "</h2>" +
-          '<p class="outro__artist" data-reveal' + d(1, 0.1, 0.3) + ">" + T.artist + "</p>" +
-          '<p class="outro__message" data-reveal' + d(2, 0.1, 0.3) + ">" + o.message + "</p>" +
-
-          '<div class="outro__actions" data-reveal' + d(4, 0.1, 0.4) + ">" +
+        '<section class="outro block">' +
+          subhead(f.outroTitle, 0) +
+          '<p class="outro__message" data-reveal' + d(1) + ">" + f.message + "</p>" +
+          '<div class="outro__actions" data-reveal' + d(2) + ">" +
             '<button class="btn btn--primary" data-action="goto-player" type="button">' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>' +
               "Ouvir novamente" +
@@ -519,15 +450,11 @@
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>' +
               "Voltar ao início" +
             "</button>" +
-            '<a class="btn btn--spotify" href="' + T.spotifyUrl + '" target="_blank" rel="noopener noreferrer">' +
-              spotifyIcon() + "Spotify" +
-            "</a>" +
           "</div>" +
-
-          '<div class="rule" data-reveal="fade"' + d(6) + "></div>" +
-          '<p class="outro__signature" data-reveal="fade"' + d(7) + ">" + o.signature + "</p>" +
-          '<p class="note" data-reveal="fade"' + d(8) + ">" + o.credits + "</p>" +
-        "</div>" +
+          '<div class="rule" data-reveal="fade"' + d(3) + "></div>" +
+          '<p class="outro__signature" data-reveal="fade"' + d(4) + ">" + f.signature + "</p>" +
+          '<p class="note" data-reveal="fade"' + d(5) + ">" + f.credits + "</p>" +
+        "</section>" +
       "</div>"
     );
   }
@@ -543,13 +470,8 @@
 
   /* ---------- Registro dos slides ---------- */
   window.APP_SLIDES = [
-    { id: "capa",       label: "Capa",             render: renderCover },
-    { id: "musica",     label: "Sobre a música",   render: renderAbout },
-    { id: "artista",    label: "Sobre o artista",  render: renderArtist },
-    { id: "significado",label: "Significado",      render: renderMeaning },
-    { id: "analise",    label: "Análise",          render: renderAnalysis },
-    { id: "momentos",   label: "Momentos",         render: renderMoments },
-    { id: "player",     label: "Player",           render: renderPlayer },
-    { id: "final",      label: "Encerramento",     render: renderOutro }
+    { id: "capa",   label: "Capa",              render: renderCover },
+    { id: "musica", label: "A música",          render: renderStory },
+    { id: "ouvir",  label: "Ouvir e encerrar",  render: renderFinale }
   ];
 })();

@@ -1,6 +1,11 @@
 /* =========================================================
    DATA — todo o conteúdo da apresentação em um só lugar.
    Para editar textos, mexa APENAS neste arquivo.
+
+   A apresentação tem 3 slides:
+     1. cover  — capa
+     2. story  — a música (ficha, contexto, significado, análise)
+     3. finale — ouvir e encerramento
    ========================================================= */
 
 window.APP_DATA = {
@@ -32,223 +37,113 @@ window.APP_DATA = {
     coverFallback: "assets/cover.jpg"
   },
 
-  /* -------------------------------------------------------
-     SLIDE 1 — Capa
-     ------------------------------------------------------- */
+  /* =======================================================
+     SLIDE 1 — CAPA
+     ======================================================= */
   cover: {
     eyebrow: "Apresentação musical",
-    kicker: "Uma character song do universo Ordem Paranormal",
+    kicker:
+      "Uma character song do universo Ordem Paranormal: quem canta não é o artista, " +
+      "é o personagem Arthur Cervero — no pior dia da vida dele.",
     cta: "Começar apresentação",
     tags: ["Single · 2025", "Rap geek", "5:49"]
   },
 
-  /* -------------------------------------------------------
-     SLIDE 2 — Sobre a música
-     ------------------------------------------------------- */
-  about: {
+  /* =======================================================
+     SLIDE 2 — A MÚSICA
+     ======================================================= */
+  story: {
     eyebrow: "Slide 02",
-    title: "Sobre a música",
+    title: "A música",
     lede:
-      "“Olhos Sempre Abertos” é uma <em>character song</em>: uma música escrita na " +
-      "pele de um personagem. Aqui, quem canta é Arthur Cervero — o músico e motoqueiro " +
-      "de Carpazinha que perde tudo e acaba virando líder de uma equipe que nunca pediu para liderar.",
+      "Ficha técnica, contexto e leitura da faixa em uma só página: " +
+      "<strong>perda → culpa → responsabilidade → promessa</strong>.",
 
+    /* --- Ficha técnica --- */
     facts: [
-      { icon: "🎵", label: "Faixa",       value: "Olhos Sempre Abertos" },
-      { icon: "🎤", label: "Artista",     value: "Shooter_sz" },
-      { icon: "📅", label: "Lançamento",  value: "3 de março de 2025" },
-      { icon: "💿", label: "Formato",     value: "Single (1 faixa)" },
-      { icon: "⏱️", label: "Duração",     value: "5:49" },
-      { icon: "🎸", label: "Gênero",      value: "Rap nacional / rap geek" },
-      { icon: "✍️", label: "Composição",  value: "Calebe e Shooter_sz" },
-      { icon: "👁️", label: "Universo",    value: "Ordem Paranormal" }
+      { icon: "📅", label: "Lançamento", value: "3 de março de 2025" },
+      { icon: "⏱️", label: "Duração",    value: "5:49 · single" },
+      { icon: "🎸", label: "Gênero",     value: "Rap nacional / rap geek" },
+      { icon: "✍️", label: "Composição", value: "Calebe e Shooter_sz" },
+      { icon: "👁️", label: "Universo",   value: "Ordem Paranormal" },
+      { icon: "🎤", label: "Artista",    value: "Shooter_sz" }
     ],
 
-    blocks: [
+    /* --- Contexto: a faixa e o artista --- */
+    context: [
       {
-        title: "O que é uma character song?",
+        icon: "🎵",
+        title: "A música",
         text:
-          "É uma música narrada em primeira pessoa por um personagem de ficção. Não é " +
-          "trilha sonora nem paródia: a letra funciona como um monólogo interno, contando " +
-          "a história pelo ponto de vista de quem a viveu. É um formato muito forte na cena " +
-          "do rap geek brasileiro."
+          "Uma <em>character song</em> — música narrada em primeira pessoa por um personagem. " +
+          "Quem fala é Arthur Cervero, de Ordem Paranormal (o RPG de terror criado por Cellbit): " +
+          "músico de Carpazinha, ex-integrante da gangue “Gaudérios Abutres”, que perde amigos e " +
+          "família para o paranormal e acaba à frente da Equipe Abutres. A faixa comprime esse arco " +
+          "em quase seis minutos e termina onde o título anuncia: sem nunca mais fechar os olhos."
       },
-      {
-        title: "Quem é Arthur Cervero?",
-        text:
-          "Personagem de Ordem Paranormal, o RPG de terror brasileiro criado por Cellbit. " +
-          "Arthur é músico e estudante de psicologia, natural de Carpazinha (RS), e integrava a " +
-          "gangue de motoqueiros “Gaudérios Abutres”. Depois de perder amigos e família para o " +
-          "paranormal, entra para a Ordo Realitas e é colocado à frente da Equipe Abutres."
-      },
-      {
-        title: "A proposta da faixa",
-        text:
-          "A música pega esse arco inteiro e comprime em quase seis minutos: começa no luto, " +
-          "atravessa a culpa e termina em promessa. O título é a tese da canção — depois de " +
-          "perder gente demais por não ter visto o perigo chegar, o personagem decide nunca " +
-          "mais fechar os olhos."
-      }
-    ],
-
-    sources: [
-      { label: "Apple Music (data, formato e duração)", url: "https://music.apple.com/us/album/olhos-sempre-abertos-single/1800553716" },
-      { label: "Cifra Club (créditos de composição)",   url: "https://www.cifraclub.com.br/338658/olhos-sempre-abertos-arthur-cervero-ordem-paranormal/letra/" },
-      { label: "Ordem Paranormal Wiki (personagem)",    url: "https://ordemparanormal.fandom.com/wiki/Arthur_Cervero" }
-    ]
-  },
-
-  /* -------------------------------------------------------
-     SLIDE 3 — Sobre o artista
-     ------------------------------------------------------- */
-  artist: {
-    eyebrow: "Slide 03",
-    title: "Sobre o artista",
-    lede:
-      "Shooter_sz é um artista brasileiro da cena de <strong>rap geek</strong> — o subgênero do " +
-      "hip-hop nacional que transforma anime, games, quadrinhos e RPG em música.",
-
-    stats: [
-      { value: "40+",  label: "Músicas catalogadas" },
-      { value: "2025", label: "Ano do single" },
-      { value: "BR",   label: "Cena rap geek" }
-    ],
-
-    blocks: [
       {
         icon: "🎧",
-        title: "O estilo",
+        title: "O artista",
         text:
-          "Faixas construídas em torno de um personagem: cada música adota uma voz, um " +
-          "trauma e um arco narrativo específicos. O instrumental costuma misturar batida de " +
-          "rap com guitarras e climas de trilha — por isso a faixa aparece catalogada ora como " +
-          "rap/hip-hop, ora como rock."
-      },
-      {
-        icon: "🤝",
-        title: "Colaborações",
-        text:
-          "Aparece em faixas conjuntas com outros nomes da cena, como ArkKing5, Shaman, " +
-          "Seven_sz e OShadowOficial — formato comum no rap geek, em que cada convidado " +
-          "assume um personagem diferente na mesma música."
-      },
-      {
-        icon: "📡",
-        title: "Onde ouvir",
-        text:
-          "A discografia está distribuída oficialmente no Spotify, Apple Music, Deezer, " +
-          "Amazon Music e YouTube. O canal do artista no YouTube reúne os lançamentos com arte e vídeo."
+          "Shooter_sz é um artista brasileiro da cena de <strong>rap geek</strong> — hip-hop feito " +
+          "sobre anime, games e RPG. Tem mais de 40 faixas catalogadas, quase todas construídas " +
+          "em torno de um personagem, com instrumentais que misturam batida de rap e guitarra. " +
+          "Não publica biografia oficial: tudo aqui vem das páginas de streaming e de bases públicas de letras."
       }
     ],
 
     works: [
-      { song: "Abismo",              char: "Subaru" },
-      { song: "Lágrimas de Ódio",    char: "Guts (Berserk)" },
-      { song: "Refém",               char: "Itadori" },
-      { song: "Artista Viajante",    char: "Spike (Cowboy Bebop)" },
-      { song: "Doente",              char: "Shinji Ikari (Evangelion)" },
-      { song: "Cinzas do Passado",   char: "Aki" },
-      { song: "Cercado por Almas",   char: "Noah (Sense Life)" },
-      { song: "DEATH SQUAD",         char: "Soul Eater" },
-      { song: "Pétalas e Cicatrizes",char: "Ordem Paranormal" },
-      { song: "Lapso Temporal",      char: "—" }
+      { song: "Abismo",           char: "Subaru" },
+      { song: "Lágrimas de Ódio", char: "Guts (Berserk)" },
+      { song: "Refém",            char: "Itadori" },
+      { song: "Doente",           char: "Shinji Ikari" },
+      { song: "Artista Viajante", char: "Spike (Cowboy Bebop)" },
+      { song: "Cinzas do Passado",char: "Aki" }
     ],
 
-    disclaimer:
-      "O artista não publica uma biografia oficial detalhada. As informações acima vêm das " +
-      "páginas oficiais de streaming e de bases públicas de letras — nada aqui foi presumido.",
-
-    sources: [
-      { label: "Perfil no Spotify",   url: "https://open.spotify.com/artist/4NO7fX47IDh3lZxK6ViJKf" },
-      { label: "Canal no YouTube",    url: "https://www.youtube.com/@Shooter_sz" },
-      { label: "Discografia (Letras)",url: "https://www.letras.mus.br/338658/" }
-    ]
-  },
-
-  /* -------------------------------------------------------
-     SLIDE 4 — Significado
-     ------------------------------------------------------- */
-  meaning: {
-    eyebrow: "Slide 04",
-    title: "O significado da música",
-    lede:
-      "A faixa percorre um caminho muito claro: <strong>perda → culpa → responsabilidade → promessa</strong>. " +
-      "É uma música sobre o que sobra de uma pessoa quando tudo que ela amava foi levado — e sobre " +
-      "o que ela decide fazer com o que sobrou.",
-
+    /* --- Significado --- */
+    themesTitle: "O que a música quer dizer",
     themes: [
       {
         icon: "🕯️",
-        title: "Luto e ausência",
+        title: "Luto que não passa",
         text:
-          "O ponto de partida é a perda. A canção não trata a morte dos próximos como " +
-          "acontecimento passado e resolvido: ela permanece presente, ocupando espaço em " +
-          "cada decisão que o personagem toma dali em diante."
+          "A perda não é acontecimento encerrado: ela continua presente, ocupando espaço " +
+          "em cada decisão que o personagem toma dali em diante."
       },
       {
         icon: "⚖️",
         title: "A culpa de quem ficou",
         text:
-          "Existe uma pergunta latente na música — por que eu e não eles? Esse peso não é " +
-          "resolvido; é convertido em combustível. Sobreviver deixa de ser sorte e vira dívida."
+          "Existe uma pergunta latente — por que eu e não eles? O peso não é resolvido, " +
+          "é convertido em combustível. Sobreviver deixa de ser sorte e vira dívida."
       },
       {
         icon: "🦅",
         title: "O abutre como símbolo",
         text:
-          "Os abutres não aparecem como imagem de morte, mas de sobrevivência: são os que " +
-          "resistem onde nada mais resiste. O nome carregado da antiga gangue vira brasão " +
-          "de uma nova equipe — a dor rebatizada como identidade."
-      },
-      {
-        icon: "🩹",
-        title: "Cicatrizes que não somem",
-        text:
-          "A música rejeita a ideia de que o tempo cura. As marcas continuam ali; a mudança " +
-          "não é a ferida fechar, e sim o personagem aprender a carregá-la sem se ajoelhar."
-      },
-      {
-        icon: "👑",
-        title: "Liderança que ninguém pediu",
-        text:
-          "Alguém subestimado se descobre responsável por manter os outros vivos. A liderança " +
-          "aqui não é conquista nem glória: é um posto herdado à força, aceito por não haver " +
-          "mais ninguém para assumi-lo."
+          "Os abutres não aparecem como imagem de morte, mas de sobrevivência: os que resistem " +
+          "onde nada mais resiste. A dor rebatizada como identidade e brasão de equipe."
       },
       {
         icon: "👁️",
         title: "A vigília do título",
         text:
-          "“Olhos sempre abertos” é promessa e sentença ao mesmo tempo. Significa não ser " +
-          "pego de surpresa outra vez — mas também significa nunca mais poder descansar. " +
-          "Proteger alguém custa o direito de baixar a guarda."
+          "“Olhos sempre abertos” é promessa e sentença. Significa não ser pego de surpresa " +
+          "outra vez — e também nunca mais poder descansar. Proteger custa a guarda baixa."
       }
     ],
 
+    feelingsTitle: "Sentimentos que a faixa transmite",
     feelings: ["Luto", "Culpa", "Revolta", "Lealdade", "Determinação", "Esperança teimosa"],
 
-    disclaimer:
-      "Esta é uma leitura interpretativa, construída a partir dos temas e das imagens da letra " +
-      "e do arco do personagem nas fontes oficiais. Interpretações de arte são discutíveis por natureza."
-  },
-
-  /* -------------------------------------------------------
-     SLIDE 5 — Análise
-     ------------------------------------------------------- */
-  analysis: {
-    eyebrow: "Slide 05",
-    title: "Análise da faixa",
-    lede: "Uma leitura visual da música: do que ela fala, como ela soa e o que ela deixa.",
+    /* --- Análise visual --- */
+    analysisTitle: "Análise",
 
     pillars: [
-      { icon: "🎯", label: "Tema principal", value: "Transformar perda em propósito",
-        text: "A dor não é o destino da música — é o ponto de partida dela." },
-      { icon: "🌫️", label: "Clima", value: "Épico melancólico",
-        text: "Peso de trilha sonora com sujeira de rap: grave, tenso e crescente." },
-      { icon: "📣", label: "Mensagem", value: "Ninguém mais morre sob a minha guarda",
-        text: "Uma promessa feita para os mortos e cobrada dos vivos." },
-      { icon: "🧭", label: "Ponto de vista", value: "Primeira pessoa",
-        text: "Monólogo interno do personagem: você ouve por dentro da cabeça dele." }
+      { icon: "🎯", label: "Tema principal", value: "Transformar perda em propósito" },
+      { icon: "🌫️", label: "Clima",          value: "Épico melancólico" },
+      { icon: "📣", label: "Mensagem",       value: "Ninguém mais morre sob a minha guarda" }
     ],
 
     emotions: [
@@ -256,98 +151,82 @@ window.APP_DATA = {
       { label: "Luto",         value: 88 },
       { label: "Melancolia",   value: 80 },
       { label: "Revolta",      value: 72 },
-      { label: "Solidão",      value: 70 },
       { label: "Esperança",    value: 52 }
     ],
 
     arc: {
       caption: "Arco emocional ao longo dos 5:49",
       points: [
-        { label: "Abertura",   value: 30, note: "Silêncio e perda" },
-        { label: "Choque",     value: 52, note: "A ficha caindo" },
-        { label: "Culpa",      value: 46, note: "Por que eu?" },
-        { label: "Virada",     value: 74, note: "Aceitar o posto" },
-        { label: "Refrão",     value: 92, note: "A promessa" },
-        { label: "Confronto",  value: 84, note: "Enfrentar o que vem" },
-        { label: "Desfecho",   value: 96, note: "Olhos abertos" }
+        { label: "Abertura",  value: 30, note: "Silêncio e perda" },
+        { label: "Choque",    value: 52, note: "A ficha caindo" },
+        { label: "Culpa",     value: 46, note: "Por que eu?" },
+        { label: "Virada",    value: 74, note: "Aceitar o posto" },
+        { label: "Refrão",    value: 92, note: "A promessa" },
+        { label: "Desfecho",  value: 96, note: "Olhos abertos" }
       ]
     },
 
     highlights: [
       { icon: "📈", title: "Construção em crescendo",
-        text: "A faixa começa contida e vai ganhando corpo. Quase seis minutos é tempo raro no rap — e aqui o tempo é usado para narrar, não para encher." },
+        text: "Começa contida e vai ganhando corpo. Quase seis minutos é tempo raro no rap — aqui o tempo é usado para narrar." },
       { icon: "🎸", title: "Guitarra no lugar do sample",
-        text: "O instrumental puxa para o rock. Não é acaso: o personagem é músico, e a guitarra é literalmente o instrumento dele." },
-      { icon: "🗣️", title: "Narrativa acima da rima",
-        text: "As escolhas de escrita servem à história. A música tem começo, meio e virada, como um capítulo — não como uma sequência de punchlines." },
+        text: "O instrumental puxa para o rock. Não é acaso: o personagem é músico, e a guitarra é o instrumento dele." },
       { icon: "🖼️", title: "A capa conta a mesma história",
-        text: "Mão tatuada, violão e uma foto antiga colada no corpo do instrumento: memória grudada naquilo que o personagem usa para seguir em frente." }
+        text: "Mão tatuada, violão e uma foto antiga colada no instrumento: memória grudada naquilo que o personagem usa para seguir." }
     ],
 
-    disclaimer:
-      "Os medidores acima representam uma leitura qualitativa da faixa — não são dados " +
-      "medidos por software nem informação divulgada pelo artista."
-  },
+    /* --- Momentos que marcam (sem reproduzir a letra) --- */
+    momentsTitle: "Momentos que marcam",
+    momentsLede:
+      "Em vez de reproduzir a letra, os momentos-chave estão descritos e comentados. " +
+      "A letra completa está nos canais oficiais.",
 
-  /* -------------------------------------------------------
-     SLIDE 6 — Trechos / destaques
-     ------------------------------------------------------- */
-  moments: {
-    eyebrow: "Slide 06",
-    title: "Momentos que marcam",
-    lede:
-      "Em vez de reproduzir a letra, os momentos-chave da música estão descritos e comentados abaixo. " +
-      "A letra completa está disponível nos canais oficiais.",
-
-    items: [
+    moments: [
       {
         time: "Início",
         title: "O chão sumindo",
-        what: "A canção abre no vazio deixado pela perda: um personagem sozinho, tentando entender o tamanho do que acabou de acontecer.",
-        why: "Estabelece o tom da faixa. Antes de qualquer promessa, é preciso mostrar o buraco que ela vai tentar preencher."
-      },
-      {
-        time: "1º bloco",
-        title: "A pergunta sem resposta",
-        what: "O foco vira para dentro: a culpa de continuar respirando enquanto os outros não continuaram.",
-        why: "É o momento mais humano da música — e o que impede o personagem de virar herói de papelão."
+        what: "A canção abre no vazio deixado pela perda: alguém sozinho tentando medir o tamanho do que acabou de acontecer.",
+        why: "Antes de qualquer promessa, é preciso mostrar o buraco que ela vai tentar preencher."
       },
       {
         time: "Virada",
         title: "O posto herdado",
-        what: "Alguém que ninguém esperava acaba tendo que liderar. Não por talento, mas por não haver mais ninguém.",
-        why: "Aqui a música muda de direção: o luto para de ser destino e passa a ser função."
+        what: "Alguém que ninguém esperava acaba tendo que liderar — não por talento, mas por não haver mais ninguém.",
+        why: "É aqui que o luto para de ser destino e passa a ser função."
       },
       {
         time: "Refrão",
         title: "A promessa aos mortos",
-        what: "O compromisso central da faixa — proteger quem restou, custe o que custar.",
-        why: "É o coração da música e a razão do título: a vigilância vira preço a pagar pela lealdade."
-      },
-      {
-        time: "Imagem central",
-        title: "Os abutres",
-        what: "A imagem dos abutres percorre a canção como emblema de quem sobrevive no lugar onde tudo morreu.",
-        why: "Ressignifica um símbolo negativo. O que era carniça vira bandeira de resistência."
+        what: "O compromisso central da faixa: proteger quem restou, custe o que custar.",
+        why: "É o coração da música e a razão do título — a vigilância como preço da lealdade."
       },
       {
         time: "Encerramento",
         title: "Sem descanso",
-        what: "A faixa fecha em determinação, não em alívio. Nada foi curado — algo foi decidido.",
+        what: "A faixa fecha em determinação, não em alívio. Nada foi curado; algo foi decidido.",
         why: "Justifica os quase seis minutos: a música não busca conforto, busca conclusão."
       }
     ],
 
-    copyright:
-      "Por respeito aos direitos autorais, nenhum verso é reproduzido aqui. Os textos acima são " +
-      "descrições e comentários originais sobre a obra."
+    disclaimer:
+      "Significado, análise e medidores são leitura interpretativa, construída a partir das imagens " +
+      "da letra e do arco do personagem nas fontes oficiais — não são dados divulgados pelo artista. " +
+      "Nenhum verso é reproduzido: os textos são descrições e comentários originais.",
+
+    sources: [
+      { label: "Spotify",       url: "https://open.spotify.com/intl-pt/track/1yxSZQfNaJv5eUl8xZMVvz" },
+      { label: "Apple Music",   url: "https://music.apple.com/us/album/olhos-sempre-abertos-single/1800553716" },
+      { label: "Cifra Club",    url: "https://www.cifraclub.com.br/338658/olhos-sempre-abertos-arthur-cervero-ordem-paranormal/letra/" },
+      { label: "Letras.mus.br", url: "https://www.letras.mus.br/338658/" },
+      { label: "Ordem Paranormal Wiki", url: "https://ordemparanormal.fandom.com/wiki/Arthur_Cervero" }
+    ]
   },
 
-  /* -------------------------------------------------------
-     SLIDE 7 — Player
-     ------------------------------------------------------- */
-  player: {
-    eyebrow: "Slide 07",
+  /* =======================================================
+     SLIDE 3 — OUVIR E ENCERRAMENTO
+     ======================================================= */
+  finale: {
+    eyebrow: "Slide 03",
     title: "Ouça a música",
     lede:
       "Reprodução pelo player oficial do Spotify. Os controles abaixo comandam a própria " +
@@ -357,15 +236,9 @@ window.APP_DATA = {
       "Com uma conta Spotify conectada no navegador, a faixa toca por inteiro.",
       "Sem login, o Spotify libera apenas uma prévia da música.",
       "O botão verde abre a faixa no aplicativo oficial."
-    ]
-  },
+    ],
 
-  /* -------------------------------------------------------
-     SLIDE 8 — Encerramento
-     ------------------------------------------------------- */
-  outro: {
-    eyebrow: "Slide 08",
-    title: "Olhos Sempre Abertos",
+    outroTitle: "Para fechar",
     message:
       "Nem toda música sobre dor termina em conforto. Esta termina em decisão. " +
       "“Olhos Sempre Abertos” pega um personagem no pior dia da vida dele e o devolve " +

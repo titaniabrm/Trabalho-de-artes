@@ -28,11 +28,6 @@
   50%      { opacity: 1; }
 }
 
-@keyframes floaty {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-12px) rotate(1.2deg); }
-}
-
 @keyframes spinSlow {
   to { transform: rotate(360deg); }
 }

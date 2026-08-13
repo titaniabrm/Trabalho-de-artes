@@ -3,7 +3,7 @@
 Site-apresentação sobre a música **“Olhos Sempre Abertos”**, de **Shooter_sz** — uma
 *character song* narrada pelo personagem Arthur Cervero, do universo **Ordem Paranormal**.
 
-O projeto é um slideshow cinematográfico de 8 slides, com transições, animações,
+O projeto é um slideshow cinematográfico de 3 slides, com transições, animações,
 gráficos, microinterações e um player ligado ao embed oficial do Spotify.
 
 ---
@@ -12,23 +12,19 @@ gráficos, microinterações e um player ligado ao embed oficial do Spotify.
 
 | Slide | Conteúdo |
 |-------|----------|
-| 1 | Capa com arte, título animado e botão “Começar apresentação” |
-| 2 | Sobre a música — ficha técnica, contexto e proposta |
-| 3 | Sobre o artista — estilo, colaborações e outros trabalhos |
-| 4 | Significado — temas, símbolos e sentimentos |
-| 5 | Análise — pilares, medidores de emoção e gráfico do arco narrativo |
-| 6 | Momentos que marcam — linha do tempo comentada |
-| 7 | Player — controles próprios ligados ao Spotify oficial |
-| 8 | Encerramento — mensagem final e atalhos |
+| 1 · Capa | Arte da faixa, título animado e botão “Começar apresentação” |
+| 2 · A música | Ficha técnica, contexto da faixa e do artista, significado, análise visual (medidores + gráfico do arco narrativo) e momentos que marcam |
+| 3 · Ouvir e encerrar | Player com controles próprios ligados ao Spotify oficial, mensagem final e atalhos |
 
 **Recursos**
 
 - Navegação por botões, teclado (`←` `→` `Home` `End` `Espaço`), roda do mouse,
   clique no fundo e *swipe* no celular
-- Barra de progresso da apresentação, contador e indicadores clicáveis
+- Barra de progresso da apresentação, contador, indicadores clicáveis e aviso
+  de rolagem quando o slide continua abaixo
 - Fundo cinematográfico com parallax, partículas em `<canvas>`, raios de luz e grão de filme
 - Glassmorphism, gradientes, blur, *tilt* 3D nas artes e brilho que segue o cursor
-- Endereço sincronizado com o slide (`#analise`, `#player`, …) para link direto
+- Endereço sincronizado com o slide (`#capa`, `#musica`, `#ouvir`) para link direto
 - Respeita `prefers-reduced-motion` e funciona de 320 px a telas ultrawide
 
 ---
@@ -66,7 +62,7 @@ Depois acesse <http://localhost:3000>.
 │   ├── layout.css        # Cenário de fundo, HUD, deck e navegação
 │   └── slides.css        # Estilos específicos de cada slide
 ├── js/
-│   ├── data.js           # ← TODO O CONTEÚDO fica aqui
+│   ├── data.js           # ← TODO O CONTEÚDO fica aqui (track, cover, story, finale)
 │   ├── slides.js         # Um render por slide (a “camada de componentes”)
 │   ├── effects.js        # Partículas, parallax, reveal e microinterações
 │   ├── player.js         # Integração com a IFrame API do Spotify
@@ -82,8 +78,9 @@ Depois acesse <http://localhost:3000>.
 
 ## ✏️ Como editar
 
-**Textos, dados e links:** só `js/data.js`. Cada slide tem seu próprio bloco
-comentado — troque as strings e recarregue. Nenhum outro arquivo precisa ser tocado.
+**Textos, dados e links:** só `js/data.js`. São quatro blocos comentados —
+`track` (dados da faixa), `cover` (slide 1), `story` (slide 2) e `finale`
+(slide 3). Troque as strings e recarregue; nenhum outro arquivo precisa ser tocado.
 
 **Cores e tipografia:** as variáveis no topo de `css/base.css` (`:root`).
 Trocar `--gold`, `--jade` e `--bg` muda a atmosfera do site inteiro.
@@ -98,7 +95,7 @@ site usa automaticamente a arte oficial do Spotify.
 
 ## 🔊 Sobre a reprodução
 
-Nenhum áudio é hospedado neste projeto. O slide 7 usa a
+Nenhum áudio é hospedado neste projeto. O slide 3 usa a
 **IFrame API oficial do Spotify**: os controles personalizados (play, pause,
 avançar, retroceder e barra de progresso) comandam o player oficial incorporado.
 
@@ -166,8 +163,8 @@ As informações factuais do site vêm de:
 - [YouTube — canal oficial](https://www.youtube.com/@Shooter_sz)
 - [Ordem Paranormal Wiki — Arthur Cervero](https://ordemparanormal.fandom.com/wiki/Arthur_Cervero)
 
-As seções de **significado** e **análise** são leituras interpretativas e estão
-sinalizadas como tal dentro do próprio site.
+Os blocos de **significado**, **análise** e **momentos** são leituras
+interpretativas e estão sinalizados como tal dentro do próprio site.
 
 ---
 
@@ -176,8 +173,8 @@ sinalizadas como tal dentro do próprio site.
 Projeto independente, feito por fãs, **sem vínculo** com Shooter_sz, com o Spotify
 ou com Ordem Paranormal.
 
-- A letra **não** é reproduzida — o slide 6 traz descrições e comentários originais,
-  com link para a letra oficial.
+- A letra **não** é reproduzida — o bloco “Momentos que marcam” traz descrições e
+  comentários originais, com link para a letra oficial.
 - O áudio **não** é hospedado — a reprodução é sempre pelo player oficial.
 - Todos os direitos da música pertencem aos seus autores.
 

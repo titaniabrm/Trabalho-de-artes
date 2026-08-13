@@ -120,6 +120,18 @@
   function next() { activate(current + 1, "next"); }
   function prev() { activate(current - 1, "prev"); }
 
+  /** Leva o usuário até o card do player, esteja ele no slide atual ou não. */
+  function gotoPlayer() {
+    var card = document.getElementById("playerCard");
+    if (!card) return;
+
+    var slide = card.closest(".slide");
+    if (slide && slide !== elements[current]) {
+      activate(elements.indexOf(slide), "next");
+    }
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   /* -------------------------------------------------------
      Interface auxiliar (HUD, dots, progresso)
      ------------------------------------------------------- */
@@ -199,8 +211,8 @@
 
       var action = actionEl.dataset.action;
       if (action === "start") next();
-      if (action === "restart") { activate(0, "prev"); }
-      if (action === "goto-player") { activate(indexOfId("player"), "prev"); }
+      if (action === "restart") activate(0, "prev");
+      if (action === "goto-player") gotoPlayer();
     });
 
     // Clique em área vazia do slide avança (comportamento de apresentação).
