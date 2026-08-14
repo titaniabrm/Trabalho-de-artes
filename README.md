@@ -13,7 +13,7 @@ gráficos, microinterações e um player ligado ao embed oficial do Spotify.
 | Slide | Conteúdo |
 |-------|----------|
 | 1 · Capa | Arte da faixa, título animado e botão “Começar apresentação” |
-| 2 · A música | Ficha técnica, contexto da faixa e do artista, significado, análise visual (medidores + gráfico do arco narrativo) e momentos que marcam |
+| 2 · A música | **Explicação narrada por voz de IA**, ficha técnica, contexto da faixa e do artista, significado, análise visual (medidores + gráfico do arco narrativo) e momentos que marcam |
 | 3 · Ouvir e encerrar | Player com controles próprios ligados ao Spotify oficial, mensagem final e atalhos |
 
 **Recursos**
@@ -26,6 +26,30 @@ gráficos, microinterações e um player ligado ao embed oficial do Spotify.
 - Glassmorphism, gradientes, blur, *tilt* 3D nas artes e brilho que segue o cursor
 - Endereço sincronizado com o slide (`#capa`, `#musica`, `#ouvir`) para link direto
 - Respeita `prefers-reduced-motion` e funciona de 320 px a telas ultrawide
+
+---
+
+## 🗣️ Narração por voz de IA
+
+O slide 2 tem um bloco de **explicação falada**. A voz é sintetizada na hora pela
+[Web Speech API](https://developer.mozilla.org/docs/Web/API/Web_Speech_API) do
+próprio navegador:
+
+- **Sem chave de API e sem custo** — nada é enviado para fora do navegador.
+- **Sem áudio hospedado** — não existe arquivo de voz no repositório.
+- Controles de **play / pausa / parar**, escolha de **voz** e de **velocidade**.
+- A **transcrição fica visível** e destaca a frase que está sendo lida; clicar
+  numa frase começa a leitura dali.
+- A narração **para sozinha** ao sair do slide ou ao dar play na música — as duas
+  nunca tocam ao mesmo tempo.
+- Se o navegador não tiver síntese de voz, o bloco avisa e o texto continua legível.
+
+O roteiro fica em `js/data.js → story.narration.script`, uma frase por item.
+Escreva números por extenso (“cinco e quarenta e nove” em vez de “5:49”): a voz
+lê muito melhor assim.
+
+> As vozes disponíveis dependem do sistema operacional. No Windows e no Chrome
+> costumam aparecer vozes pt-BR como *Daniel* e *Maria*.
 
 ---
 
@@ -66,6 +90,7 @@ Depois acesse <http://localhost:3000>.
 │   ├── slides.js         # Um render por slide (a “camada de componentes”)
 │   ├── effects.js        # Partículas, parallax, reveal e microinterações
 │   ├── player.js         # Integração com a IFrame API do Spotify
+│   ├── narrator.js       # Narração por voz sintetizada (Web Speech API)
 │   ├── deck.js           # Motor de navegação da apresentação
 │   └── main.js           # Inicialização
 ├── assets/               # Capa opcional (veja assets/README.md)

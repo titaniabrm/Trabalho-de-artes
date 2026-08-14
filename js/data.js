@@ -59,6 +59,34 @@ window.APP_DATA = {
       "Ficha técnica, contexto e leitura da faixa em uma só página: " +
       "<strong>perda → culpa → responsabilidade → promessa</strong>.",
 
+    /* --- Narração por voz sintetizada (Web Speech API do navegador) ---
+       Cada item é lido como uma frase separada e destacado na transcrição.
+       Escreva números por extenso: a voz lê melhor "cinco e quarenta e nove"
+       do que "5:49". */
+    narration: {
+      title: "Explicação em áudio",
+      badge: "Voz de IA",
+      cta: "Ouvir a explicação",
+      hint:
+        "Narração gerada na hora pela voz sintetizada do seu navegador — " +
+        "nenhum áudio é baixado ou hospedado. Acompanhe pela transcrição abaixo.",
+      unsupported:
+        "Seu navegador não oferece síntese de voz. Use Chrome, Edge ou Safari " +
+        "atualizados para ouvir a explicação — o texto continua disponível abaixo.",
+
+      script: [
+        "Olhos Sempre Abertos foi lançada por Shooter ésse zê em três de março de dois mil e vinte e cinco, num single de cinco minutos e quarenta e nove segundos.",
+        "Ela não é uma música sobre o artista. É uma character song: quem canta é um personagem, Arthur Cervero, do universo Ordem Paranormal.",
+        "Arthur é músico, vem de Carpazinha, no Rio Grande do Sul, e fazia parte de uma gangue de motoqueiros chamada Gaudérios Abutres.",
+        "Depois de perder amigos e família para o paranormal, ele entra para a Ordo Realitas e acaba na liderança de uma equipe que nunca pediu para liderar.",
+        "A faixa percorre esse caminho em quatro etapas: a perda, a culpa de ter sobrevivido, a responsabilidade que cai no colo dele, e por fim a promessa.",
+        "O símbolo central é o abutre. Aqui ele não representa a morte, e sim quem resiste onde nada mais resistiu. É a dor virando identidade.",
+        "O instrumental puxa para o rock, com guitarra no lugar do sample. Faz sentido: o personagem é músico, e a guitarra é o instrumento dele.",
+        "E o título é a tese da canção. Manter os olhos sempre abertos é a promessa de proteger quem restou, mas também é uma sentença: nunca mais poder descansar.",
+        "Uma ressalva: os dados de lançamento, duração e composição vêm de fontes oficiais, mas a leitura de significado apresentada aqui é interpretativa."
+      ]
+    },
+
     /* --- Ficha técnica --- */
     facts: [
       { icon: "📅", label: "Lançamento", value: "3 de março de 2025" },

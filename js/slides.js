@@ -215,6 +215,8 @@
       '<div class="slide__inner stack-lg">' +
         header(s) +
 
+        narrator(s.narration) +
+
         '<ul class="facts">' + facts + "</ul>" +
 
         '<section class="block">' +
@@ -265,6 +267,75 @@
 
         sources(s.sources) +
       "</div>"
+    );
+  }
+
+  /**
+   * Narração por voz sintetizada do navegador (Web Speech API).
+   * A transcrição fica visível e destaca a frase que está sendo lida —
+   * serve de legenda e mantém o conteúdo acessível sem áudio.
+   */
+  function narrator(n) {
+    var wave = "";
+    for (var i = 0; i < 7; i++) wave += '<i style="--i:' + i + '"></i>';
+
+    var lines = n.script
+      .map(function (line, i) {
+        return (
+          '<li class="narrator__line" role="button" tabindex="0" ' +
+          'title="Ouvir a partir daqui">' + line + "</li>"
+        );
+      })
+      .join("");
+
+    var rates = [
+      { v: "0.9", t: "0,9×" },
+      { v: "1",   t: "1×" },
+      { v: "1.15",t: "1,15×" },
+      { v: "1.3", t: "1,3×" }
+    ]
+      .map(function (r) {
+        return '<option value="' + r.v + '"' + (r.v === "1" ? " selected" : "") + ">" + r.t + "</option>";
+      })
+      .join("");
+
+    return (
+      '<section class="narrator card" id="narrator" data-reveal="zoom"' + d(2) + " data-glow>" +
+        '<div class="narrator__head">' +
+          '<span class="narrator__badge"><span class="narrator__dot" aria-hidden="true"></span>' + n.badge + "</span>" +
+          '<h3 class="narrator__title">' + n.title + "</h3>" +
+          '<div class="narrator__settings">' +
+            '<label class="narrator__field">' +
+              '<span class="sr-only">Voz</span>' +
+              '<select id="narratorVoice" class="narrator__select" aria-label="Voz da narração"></select>' +
+            "</label>" +
+            '<label class="narrator__field">' +
+              '<span class="sr-only">Velocidade</span>' +
+              '<select id="narratorRate" class="narrator__select narrator__select--rate" aria-label="Velocidade da narração">' +
+                rates +
+              "</select>" +
+            "</label>" +
+          "</div>" +
+        "</div>" +
+
+        '<div class="narrator__deck">' +
+          '<button class="narrator__play" id="narratorPlay" type="button" ' +
+                  'data-state="idle" aria-label="Reproduzir narração">' +
+            '<svg class="narrator__iconPlay"  viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8V4z"/></svg>' +
+            '<svg class="narrator__iconPause" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h4v16H7zM13 4h4v16h-4z"/></svg>' +
+          "</button>" +
+          '<div class="narrator__meta">' +
+            '<span class="narrator__cta">' + n.cta + "</span>" +
+            '<span class="narrator__wave" id="narratorWave" aria-hidden="true">' + wave + "</span>" +
+          "</div>" +
+          '<button class="narrator__stop" id="narratorStop" type="button" disabled aria-label="Parar narração">' +
+            '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>' +
+          "</button>" +
+        "</div>" +
+
+        '<ol class="narrator__script" id="narratorScript">' + lines + "</ol>" +
+        '<p class="narrator__status" id="narratorStatus">' + n.hint + "</p>" +
+      "</section>"
     );
   }
 

@@ -98,6 +98,9 @@
       }, CLEANUP_MS);
     }
 
+    // A narração pertence ao slide dela: sair da página cala a voz.
+    if (from !== to && window.APP_NARRATOR) window.APP_NARRATOR.stop(true);
+
     current = index;
     to.classList.remove("is-leaving");
     to.classList.add("is-active");

@@ -16,6 +16,9 @@
     // 3. Liga o player ao embed oficial do Spotify
     window.APP_PLAYER.init();
 
+    // 4. Prepara a narração por voz sintetizada
+    window.APP_NARRATOR.init();
+
     document.body.classList.add("is-ready");
   }
 

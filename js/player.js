@@ -173,6 +173,9 @@
      Ações
      ------------------------------------------------------- */
   function togglePlay() {
+    // A narração e a música não podem disputar o mesmo ouvido.
+    if (window.APP_NARRATOR) window.APP_NARRATOR.stop(true);
+
     if (mode === "local" && audio) {
       audio.paused ? audio.play() : audio.pause();
       return;
