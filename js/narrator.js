@@ -103,8 +103,8 @@
     var current = ui.voice.value;
     ui.voice.innerHTML = voices
       .map(function (v, i) {
-        return '<option value="' + i + '">' + v.name.replace(/Microsoft |Google /, "") +
-               " (" + v.lang + ")</option>";
+        return '<option value="' + i + '" title="Voz do sistema: ' + v.name + '">' +
+               voiceLabel(v, i) + "</option>";
       })
       .join("");
     if (current && voices[current]) ui.voice.value = current;
@@ -117,6 +117,37 @@
   }
 
   function currentVoice() { return voices[Number(ui.voice.value)] || voices[0] || null; }
+
+  /**
+   * Nome de exibição da voz: "Abutre I — voz grave".
+   * As vozes do sistema têm nomes crus e variam por sistema operacional;
+   * aqui elas recebem a identidade da apresentação.
+   */
+  function voiceLabel(voice, i) {
+    var cfg = N.voiceNames;
+    var label = cfg.base + " " + roman(i);
+
+    var timbre = timbreOf(voice.name, cfg.timbres);
+    if (timbre) label += " — " + timbre;
+
+    // Se não for pt-BR, avisa: pode ler o texto com sotaque estranho.
+    if (!/pt.BR/i.test(voice.lang)) label += " (" + voice.lang + ")";
+
+    return label;
+  }
+
+  function timbreOf(voiceName, timbres) {
+    var lower = voiceName.toLowerCase();
+    var keys = Object.keys(timbres);
+    for (var i = 0; i < keys.length; i++) {
+      if (lower.indexOf(keys[i]) !== -1) return timbres[keys[i]];
+    }
+    return "";
+  }
+
+  function roman(i) {
+    return ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][i] || String(i + 1);
+  }
 
   /* -------------------------------------------------------
      Reprodução

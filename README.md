@@ -48,8 +48,18 @@ O roteiro fica em `js/data.js → story.narration.script`, uma frase por item.
 Escreva números por extenso (“cinco e quarenta e nove” em vez de “5:49”): a voz
 lê muito melhor assim.
 
-> As vozes disponíveis dependem do sistema operacional. No Windows e no Chrome
-> costumam aparecer vozes pt-BR como *Daniel* e *Maria*.
+As vozes vêm do sistema operacional e têm nomes crus (*Daniel*, *Maria*,
+*Francisca*…). No seletor elas aparecem renomeadas com a identidade da faixa —
+**Abutre I — voz grave**, **Abutre II — voz clara** — e o nome real do sistema
+continua visível ao passar o mouse sobre a opção.
+
+Para mudar esses nomes, edite `js/data.js → story.narration.voiceNames`:
+`base` é o nome (numerado automaticamente em I, II, III…) e `timbres` traduz
+nomes conhecidos do sistema numa descrição curta. Voz que não estiver na lista
+aparece só com o numeral; voz fora de pt-BR ganha o código do idioma no fim.
+
+> As vozes disponíveis dependem do sistema operacional — no Windows com Chrome
+> costumam ser duas em pt-BR.
 
 ---
 

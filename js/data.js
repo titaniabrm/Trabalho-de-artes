@@ -74,6 +74,30 @@ window.APP_DATA = {
         "Seu navegador não oferece síntese de voz. Use Chrome, Edge ou Safari " +
         "atualizados para ouvir a explicação — o texto continua disponível abaixo.",
 
+      /* --- Como as vozes aparecem no seletor ---
+         As vozes vêm do sistema operacional e têm nomes crus ("Daniel",
+         "Maria", "Francisca"…). Aqui elas ganham nomes temáticos da faixa:
+         Abutre I, Abutre II, e assim por diante.
+         `timbres` traduz nomes conhecidos em uma descrição curta; vozes fora
+         da lista aparecem só com o numeral. O nome real do sistema continua
+         visível ao passar o mouse sobre a opção. */
+      voiceNames: {
+        base: "Abutre",
+        timbres: {
+          daniel:    "voz grave",
+          antonio:   "voz grave",
+          ricardo:   "voz grave",
+          felipe:    "voz grave",
+          duarte:    "voz grave",
+          maria:     "voz clara",
+          francisca: "voz clara",
+          luciana:   "voz clara",
+          helena:    "voz clara",
+          joana:     "voz clara",
+          catarina:  "voz clara"
+        }
+      },
+
       script: [
         "Olhos Sempre Abertos foi lançada por Shooter ésse zê em três de março de dois mil e vinte e cinco, num single de cinco minutos e quarenta e nove segundos.",
         "Ela não é uma música sobre o artista. É uma character song: quem canta é um personagem, Arthur Cervero, do universo Ordem Paranormal.",
