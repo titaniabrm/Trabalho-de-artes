@@ -3,7 +3,7 @@
    O conteúdo vem sempre de js/data.js.
 
    1. capa    — arte, título e chamada
-   2. musica  — ficha, contexto, significado, análise e momentos
+   2. musica  — ficha técnica, contexto e análise
    3. ouvir   — player oficial e encerramento
    ========================================================= */
 
@@ -137,25 +137,6 @@
       })
       .join("");
 
-    /* --- Significado --- */
-    var themes = s.themes
-      .map(function (t, i) {
-        return (
-          '<article class="card theme" data-reveal' + d(i, 0.07, 0.25) + " data-glow>" +
-            '<span class="icon-badge" aria-hidden="true">' + t.icon + "</span>" +
-            '<h4 class="card__title">' + t.title + "</h4>" +
-            '<p class="card__text">' + t.text + "</p>" +
-          "</article>"
-        );
-      })
-      .join("");
-
-    var feelings = s.feelings
-      .map(function (f, i) {
-        return '<li class="chip" data-reveal="zoom"' + d(i, 0.06, 0.4) + ">" + f + "</li>";
-      })
-      .join("");
-
     /* --- Análise --- */
     var pillars = s.pillars
       .map(function (p, i) {
@@ -195,21 +176,6 @@
       })
       .join("");
 
-    /* --- Momentos --- */
-    var moments = s.moments
-      .map(function (it, i) {
-        return (
-          '<li class="moment" data-reveal="left"' + d(i, 0.09, 0.25) + ">" +
-            '<span class="moment__time">' + it.time + "</span>" +
-            '<div class="moment__body card" data-glow>' +
-              '<h4 class="moment__title">' + it.title + "</h4>" +
-              '<p class="moment__what">' + it.what + "</p>" +
-            "</div>" +
-          "</li>"
-        );
-      })
-      .join("");
-
     return (
       '<div class="slide__inner stack-lg">' +
         header(s) +
@@ -223,15 +189,6 @@
           '<section class="works" data-reveal' + d(4) + ">" +
             '<h4 class="works__title">Outras faixas do artista</h4>' +
             '<ul class="works__list">' + works + "</ul>" +
-          "</section>" +
-        "</section>" +
-
-        '<section class="block">' +
-          subhead(s.themesTitle, 0) +
-          '<div class="grid grid--4">' + themes + "</div>" +
-          '<section class="feelings" data-reveal' + d(5) + ">" +
-            '<h4 class="feelings__title">' + s.feelingsTitle + "</h4>" +
-            '<ul class="chips">' + feelings + "</ul>" +
           "</section>" +
         "</section>" +
 
@@ -251,17 +208,13 @@
           '<div class="grid grid--3">' + highlights + "</div>" +
         "</section>" +
 
-        '<section class="block">' +
-          subhead(s.momentsTitle, 0) +
-          '<ol class="moments">' + moments + "</ol>" +
-          '<div class="moments__foot" data-reveal="fade"' + d(6) + ">" +
-            '<p class="note">' + s.disclaimer + "</p>" +
-            '<a class="btn btn--ghost" href="' + T.lyricsUrl + '" target="_blank" rel="noopener noreferrer">' +
-              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>' +
-              "Ver a letra oficial" +
-            "</a>" +
-          "</div>" +
-        "</section>" +
+        '<div class="slide-foot" data-reveal="fade"' + d(6) + ">" +
+          '<p class="note">' + s.disclaimer + "</p>" +
+          '<a class="btn btn--ghost" href="' + T.lyricsUrl + '" target="_blank" rel="noopener noreferrer">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>' +
+            "Ver a letra oficial" +
+          "</a>" +
+        "</div>" +
 
         sources(s.sources) +
       "</div>"

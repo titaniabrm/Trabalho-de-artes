@@ -13,7 +13,7 @@ gráficos, microinterações e um player ligado ao embed oficial do Spotify.
 | Slide | Conteúdo |
 |-------|----------|
 | 1 · Capa | Arte da faixa, título animado e botão “Começar apresentação” |
-| 2 · A música | **Explicação narrada por voz de IA**, ficha técnica, contexto da faixa e do artista, significado, análise visual (medidores + gráfico do arco narrativo) e momentos que marcam |
+| 2 · A música | **Explicação narrada por voz de IA**, ficha técnica, contexto da faixa e do artista e análise visual (pilares, medidores de emoção e gráfico do arco narrativo) |
 | 3 · Ouvir e encerrar | Player com controles próprios ligados ao Spotify oficial, mensagem final e atalhos |
 
 **Recursos**
@@ -188,8 +188,8 @@ As informações factuais do site vêm de:
 - [YouTube — canal oficial](https://www.youtube.com/@Shooter_sz)
 - [Ordem Paranormal Wiki — Arthur Cervero](https://ordemparanormal.fandom.com/wiki/Arthur_Cervero)
 
-Os blocos de **significado**, **análise** e **momentos** são leituras
-interpretativas e estão sinalizados como tal dentro do próprio site.
+O bloco de **análise** e a narração são leituras interpretativas e estão
+sinalizados como tal dentro do próprio site.
 
 ---
 
@@ -198,8 +198,8 @@ interpretativas e estão sinalizados como tal dentro do próprio site.
 Projeto independente, feito por fãs, **sem vínculo** com Shooter_sz, com o Spotify
 ou com Ordem Paranormal.
 
-- A letra **não** é reproduzida — o bloco “Momentos que marcam” traz descrições e
-  comentários originais, com link para a letra oficial.
+- A letra **não** é reproduzida — os textos são descrições e comentários originais,
+  com link para a letra oficial no rodapé do slide 2.
 - O áudio **não** é hospedado — a reprodução é sempre pelo player oficial.
 - Todos os direitos da música pertencem aos seus autores.
 

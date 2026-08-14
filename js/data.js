@@ -127,34 +127,6 @@ window.APP_DATA = {
       { song: "Cinzas do Passado",char: "Aki" }
     ],
 
-    /* --- Significado --- */
-    themesTitle: "O que a música quer dizer",
-    themes: [
-      {
-        icon: "🕯️",
-        title: "Luto que não passa",
-        text: "A perda não é capítulo encerrado: segue presente em cada decisão que o personagem toma dali em diante."
-      },
-      {
-        icon: "⚖️",
-        title: "A culpa de quem ficou",
-        text: "Por que eu e não eles? O peso não é resolvido, é convertido em combustível — sobreviver vira dívida."
-      },
-      {
-        icon: "🦅",
-        title: "O abutre como símbolo",
-        text: "Não é imagem de morte, e sim de quem resiste onde nada mais resistiu. A dor virando identidade e brasão."
-      },
-      {
-        icon: "👁️",
-        title: "A vigília do título",
-        text: "Promessa e sentença ao mesmo tempo: não ser pego de surpresa outra vez — e nunca mais poder descansar."
-      }
-    ],
-
-    feelingsTitle: "Sentimentos que a faixa transmite",
-    feelings: ["Luto", "Culpa", "Revolta", "Lealdade", "Determinação", "Esperança teimosa"],
-
     /* --- Análise visual --- */
     analysisTitle: "Análise",
 
@@ -191,40 +163,6 @@ window.APP_DATA = {
         text: "O instrumental puxa para o rock. Não é acaso: o personagem é músico, e a guitarra é o instrumento dele." },
       { icon: "🖼️", title: "A capa conta a mesma história",
         text: "Mão tatuada, violão e uma foto antiga colada no instrumento: memória grudada no que ele usa para seguir." }
-    ],
-
-    /* --- Momentos que marcam (sem reproduzir a letra) --- */
-    momentsTitle: "Momentos que marcam",
-
-    moments: [
-      {
-        time: "Início",
-        title: "O chão sumindo",
-        what:
-          "Abre no vazio deixado pela perda — alguém sozinho medindo o tamanho do que acabou de " +
-          "acontecer. Antes da promessa, é preciso mostrar o buraco que ela vai preencher."
-      },
-      {
-        time: "Virada",
-        title: "O posto herdado",
-        what:
-          "Alguém que ninguém esperava acaba tendo que liderar: não por talento, mas por não haver " +
-          "mais ninguém. Aqui o luto deixa de ser destino e vira função."
-      },
-      {
-        time: "Refrão",
-        title: "A promessa aos mortos",
-        what:
-          "O compromisso central — proteger quem restou, custe o que custar. É o coração da faixa " +
-          "e a razão do título: vigilância como preço da lealdade."
-      },
-      {
-        time: "Encerramento",
-        title: "Sem descanso",
-        what:
-          "Fecha em determinação, não em alívio. Nada foi curado; algo foi decidido — e é isso que " +
-          "justifica os quase seis minutos."
-      }
     ],
 
     disclaimer:
