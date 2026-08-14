@@ -15,8 +15,8 @@
 /* --- Bloco temático dentro de um slide longo --- */
 .block {
   display: grid;
-  gap: clamp(0.8rem, 1.6vw, 1.15rem);
-  padding-top: clamp(0.9rem, 2vw, 1.4rem);
+  gap: clamp(0.7rem, 1.3vw, 0.95rem);
+  padding-top: clamp(0.7rem, 1.4vw, 1rem);
   border-top: 1px solid rgba(240, 216, 170, 0.09);
 }
 .block__lede {
@@ -341,7 +341,7 @@
 .narrator__script {
   display: grid;
   gap: 0.28rem;
-  max-height: 11.5rem;
+  max-height: 8.5rem;
   padding: 0.6rem;
   border: 1px solid rgba(240, 216, 170, 0.1);
   border-radius: 14px;
@@ -447,16 +447,11 @@
   color: var(--muted-2);
 }
 
-.works {
-  padding: clamp(1rem, 2.2vw, 1.5rem);
-  border: 1px solid var(--stroke);
-  border-radius: var(--radius);
-  background: var(--glass);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
+/* Grupos secundários: rótulo + conteúdo, sem moldura própria — a caixa
+   custava altura sem acrescentar informação. */
+.works { display: grid; gap: 0.55rem; }
 .works__title {
-  margin-bottom: 0.9rem;
+  margin: 0;
   font-family: var(--font-body);
   font-size: 0.74rem;
   font-weight: 700;
@@ -464,27 +459,26 @@
   text-transform: uppercase;
   color: var(--gold);
 }
-.works__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(196px, 1fr));
-  gap: 0.5rem;
-}
+/* Uma linha por faixa: ocupa metade da altura de um card em duas linhas. */
+.works__list { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .work {
-  display: grid;
-  gap: 0.05rem;
-  padding: 0.6rem 0.85rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.36rem 0.8rem;
   border: 1px solid transparent;
-  border-radius: 12px;
-  background: rgba(255, 246, 230, 0.032);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 246, 230, 0.04);
   transition: all 0.32s var(--ease);
 }
 .work:hover {
   border-color: var(--stroke-hi);
   background: rgba(224, 169, 85, 0.1);
-  transform: translateX(4px);
+  transform: translateY(-2px);
 }
-.work__song { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
-.work__char { font-size: 0.74rem; color: var(--muted-2); }
+.work__song { font-size: 0.84rem; font-weight: 600; color: var(--ink); }
+.work__char { font-size: 0.72rem; color: var(--muted-2); }
+.work__char::before { content: "· "; }
 
 /* =========================================================
    SLIDE 4 — SIGNIFICADO
@@ -497,14 +491,9 @@
   background: linear-gradient(90deg, transparent, var(--stroke-hi), transparent);
 }
 
-.feelings {
-  padding: clamp(1rem, 2.2vw, 1.4rem);
-  border: 1px dashed rgba(240, 216, 170, 0.2);
-  border-radius: var(--radius);
-  background: rgba(255, 246, 230, 0.025);
-}
+.feelings { display: grid; gap: 0.55rem; }
 .feelings__title {
-  margin-bottom: 0.85rem;
+  margin: 0;
   font-family: var(--font-body);
   font-size: 0.74rem;
   font-weight: 700;
@@ -533,9 +522,17 @@
 /* =========================================================
    SLIDE 5 — ANÁLISE
    ========================================================= */
+/* Pilares são cartões-resumo: ícone na mesma linha do rótulo, sem selo
+   ocupando altura só para si. */
+.pillar { display: grid; gap: 0.3rem; align-content: start; }
+.pillar .icon-badge {
+  width: 30px; height: 30px;
+  margin: 0;
+  border-radius: 9px;
+  font-size: 0.92rem;
+}
 .pillar__label {
   display: block;
-  margin-bottom: 0.2rem;
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.17em;
@@ -543,7 +540,7 @@
   color: var(--muted-2);
 }
 .pillar__value {
-  margin-bottom: 0.45rem;
+  margin: 0;
   font-family: var(--font-body);
   font-size: 1.02rem;
   font-weight: 600;
@@ -677,23 +674,7 @@
   font-size: 1.14rem;
   color: var(--ink);
 }
-.moment__what { font-size: 0.92rem; color: var(--ink-soft); }
-.moment__why {
-  margin: 0.6rem 0 0;
-  padding-top: 0.6rem;
-  border-top: 1px solid rgba(240, 216, 170, 0.1);
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-.moment__why span {
-  display: block;
-  margin-bottom: 0.15rem;
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--jade);
-}
+.moment__what { font-size: 0.9rem; color: var(--ink-soft); }
 
 /* Em telas largas a linha do tempo vira duas colunas — seis momentos
    empilhados deixariam o slide alto demais. */

@@ -103,20 +103,18 @@ window.APP_DATA = {
         icon: "🎵",
         title: "A música",
         text:
-          "Uma <em>character song</em> — música narrada em primeira pessoa por um personagem. " +
-          "Quem fala é Arthur Cervero, de Ordem Paranormal (o RPG de terror criado por Cellbit): " +
-          "músico de Carpazinha, ex-integrante da gangue “Gaudérios Abutres”, que perde amigos e " +
-          "família para o paranormal e acaba à frente da Equipe Abutres. A faixa comprime esse arco " +
-          "em quase seis minutos e termina onde o título anuncia: sem nunca mais fechar os olhos."
+          "Uma <em>character song</em> — narrada em primeira pessoa por um personagem. Quem fala é " +
+          "Arthur Cervero, de Ordem Paranormal (o RPG de terror criado por Cellbit): músico de " +
+          "Carpazinha, ex-integrante da gangue “Gaudérios Abutres”, que perde amigos e família para " +
+          "o paranormal e acaba à frente da Equipe Abutres."
       },
       {
         icon: "🎧",
         title: "O artista",
         text:
-          "Shooter_sz é um artista brasileiro da cena de <strong>rap geek</strong> — hip-hop feito " +
-          "sobre anime, games e RPG. Tem mais de 40 faixas catalogadas, quase todas construídas " +
-          "em torno de um personagem, com instrumentais que misturam batida de rap e guitarra. " +
-          "Não publica biografia oficial: tudo aqui vem das páginas de streaming e de bases públicas de letras."
+          "Shooter_sz é da cena do <strong>rap geek</strong> brasileiro — hip-hop feito sobre anime, " +
+          "games e RPG. Mais de 40 faixas catalogadas, quase todas em torno de um personagem. " +
+          "Não publica biografia oficial: tudo aqui vem das páginas de streaming."
       }
     ],
 
@@ -135,30 +133,22 @@ window.APP_DATA = {
       {
         icon: "🕯️",
         title: "Luto que não passa",
-        text:
-          "A perda não é acontecimento encerrado: ela continua presente, ocupando espaço " +
-          "em cada decisão que o personagem toma dali em diante."
+        text: "A perda não é capítulo encerrado: segue presente em cada decisão que o personagem toma dali em diante."
       },
       {
         icon: "⚖️",
         title: "A culpa de quem ficou",
-        text:
-          "Existe uma pergunta latente — por que eu e não eles? O peso não é resolvido, " +
-          "é convertido em combustível. Sobreviver deixa de ser sorte e vira dívida."
+        text: "Por que eu e não eles? O peso não é resolvido, é convertido em combustível — sobreviver vira dívida."
       },
       {
         icon: "🦅",
         title: "O abutre como símbolo",
-        text:
-          "Os abutres não aparecem como imagem de morte, mas de sobrevivência: os que resistem " +
-          "onde nada mais resiste. A dor rebatizada como identidade e brasão de equipe."
+        text: "Não é imagem de morte, e sim de quem resiste onde nada mais resistiu. A dor virando identidade e brasão."
       },
       {
         icon: "👁️",
         title: "A vigília do título",
-        text:
-          "“Olhos sempre abertos” é promessa e sentença. Significa não ser pego de surpresa " +
-          "outra vez — e também nunca mais poder descansar. Proteger custa a guarda baixa."
+        text: "Promessa e sentença ao mesmo tempo: não ser pego de surpresa outra vez — e nunca mais poder descansar."
       }
     ],
 
@@ -196,49 +186,49 @@ window.APP_DATA = {
 
     highlights: [
       { icon: "📈", title: "Construção em crescendo",
-        text: "Começa contida e vai ganhando corpo. Quase seis minutos é tempo raro no rap — aqui o tempo é usado para narrar." },
+        text: "Começa contida e ganha corpo. Quase seis minutos é tempo raro no rap — aqui, tempo usado para narrar." },
       { icon: "🎸", title: "Guitarra no lugar do sample",
         text: "O instrumental puxa para o rock. Não é acaso: o personagem é músico, e a guitarra é o instrumento dele." },
       { icon: "🖼️", title: "A capa conta a mesma história",
-        text: "Mão tatuada, violão e uma foto antiga colada no instrumento: memória grudada naquilo que o personagem usa para seguir." }
+        text: "Mão tatuada, violão e uma foto antiga colada no instrumento: memória grudada no que ele usa para seguir." }
     ],
 
     /* --- Momentos que marcam (sem reproduzir a letra) --- */
     momentsTitle: "Momentos que marcam",
-    momentsLede:
-      "Em vez de reproduzir a letra, os momentos-chave estão descritos e comentados. " +
-      "A letra completa está nos canais oficiais.",
 
     moments: [
       {
         time: "Início",
         title: "O chão sumindo",
-        what: "A canção abre no vazio deixado pela perda: alguém sozinho tentando medir o tamanho do que acabou de acontecer.",
-        why: "Antes de qualquer promessa, é preciso mostrar o buraco que ela vai tentar preencher."
+        what:
+          "Abre no vazio deixado pela perda — alguém sozinho medindo o tamanho do que acabou de " +
+          "acontecer. Antes da promessa, é preciso mostrar o buraco que ela vai preencher."
       },
       {
         time: "Virada",
         title: "O posto herdado",
-        what: "Alguém que ninguém esperava acaba tendo que liderar — não por talento, mas por não haver mais ninguém.",
-        why: "É aqui que o luto para de ser destino e passa a ser função."
+        what:
+          "Alguém que ninguém esperava acaba tendo que liderar: não por talento, mas por não haver " +
+          "mais ninguém. Aqui o luto deixa de ser destino e vira função."
       },
       {
         time: "Refrão",
         title: "A promessa aos mortos",
-        what: "O compromisso central da faixa: proteger quem restou, custe o que custar.",
-        why: "É o coração da música e a razão do título — a vigilância como preço da lealdade."
+        what:
+          "O compromisso central — proteger quem restou, custe o que custar. É o coração da faixa " +
+          "e a razão do título: vigilância como preço da lealdade."
       },
       {
         time: "Encerramento",
         title: "Sem descanso",
-        what: "A faixa fecha em determinação, não em alívio. Nada foi curado; algo foi decidido.",
-        why: "Justifica os quase seis minutos: a música não busca conforto, busca conclusão."
+        what:
+          "Fecha em determinação, não em alívio. Nada foi curado; algo foi decidido — e é isso que " +
+          "justifica os quase seis minutos."
       }
     ],
 
     disclaimer:
-      "Significado, análise e medidores são leitura interpretativa, construída a partir das imagens " +
-      "da letra e do arco do personagem nas fontes oficiais — não são dados divulgados pelo artista. " +
+      "Significado, análise e medidores são leitura interpretativa, não dados divulgados pelo artista. " +
       "Nenhum verso é reproduzido: os textos são descrições e comentários originais.",
 
     sources: [

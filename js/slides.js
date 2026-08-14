@@ -204,7 +204,6 @@
             '<div class="moment__body card" data-glow>' +
               '<h4 class="moment__title">' + it.title + "</h4>" +
               '<p class="moment__what">' + it.what + "</p>" +
-              '<p class="moment__why"><span>Por que importa</span>' + it.why + "</p>" +
             "</div>" +
           "</li>"
         );
@@ -254,7 +253,6 @@
 
         '<section class="block">' +
           subhead(s.momentsTitle, 0) +
-          '<p class="block__lede" data-reveal="fade"' + d(1) + ">" + s.momentsLede + "</p>" +
           '<ol class="moments">' + moments + "</ol>" +
           '<div class="moments__foot" data-reveal="fade"' + d(6) + ">" +
             '<p class="note">' + s.disclaimer + "</p>" +
