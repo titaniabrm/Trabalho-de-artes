@@ -49,14 +49,15 @@ Escreva números por extenso (“cinco e quarenta e nove” em vez de “5:49”
 lê muito melhor assim.
 
 As vozes vêm do sistema operacional e têm nomes crus (*Daniel*, *Maria*,
-*Francisca*…). No seletor elas aparecem renomeadas com a identidade da faixa —
-**Abutre I — voz grave**, **Abutre II — voz clara** — e o nome real do sistema
-continua visível ao passar o mouse sobre a opção.
+*Francisca*…). No seletor elas aparecem numeradas — **Narrador 1 — voz grave**,
+**Narrador 2 — voz clara**, **Narrador 3 — voz neutra** — e o nome real do
+sistema continua visível ao passar o mouse sobre a opção.
 
-Para mudar esses nomes, edite `js/data.js → story.narration.voiceNames`:
-`base` é o nome (numerado automaticamente em I, II, III…) e `timbres` traduz
-nomes conhecidos do sistema numa descrição curta. Voz que não estiver na lista
-aparece só com o numeral; voz fora de pt-BR ganha o código do idioma no fim.
+Para mudar isso, edite `js/data.js → story.narration.voiceNames`: `base` é o
+nome (numerado automaticamente conforme a quantidade de vozes), `timbres`
+traduz nomes conhecidos do sistema numa descrição curta e `padrao` cobre as
+vozes que não estiverem na lista. Voz fora de pt-BR ganha o código do idioma
+no fim, como aviso de que pode sair com sotaque.
 
 > As vozes disponíveis dependem do sistema operacional — no Windows com Chrome
 > costumam ser duas em pt-BR.

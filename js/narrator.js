@@ -119,15 +119,15 @@
   function currentVoice() { return voices[Number(ui.voice.value)] || voices[0] || null; }
 
   /**
-   * Nome de exibição da voz: "Abutre I — voz grave".
-   * As vozes do sistema têm nomes crus e variam por sistema operacional;
-   * aqui elas recebem a identidade da apresentação.
+   * Nome de exibição da voz: "Narrador 1 — voz grave".
+   * As vozes do sistema têm nomes crus e variam de máquina para máquina;
+   * a numeração acompanha quantas o navegador oferecer.
    */
   function voiceLabel(voice, i) {
     var cfg = N.voiceNames;
-    var label = cfg.base + " " + roman(i);
+    var label = cfg.base + " " + (i + 1);
 
-    var timbre = timbreOf(voice.name, cfg.timbres);
+    var timbre = timbreOf(voice.name, cfg.timbres) || cfg.padrao;
     if (timbre) label += " — " + timbre;
 
     // Se não for pt-BR, avisa: pode ler o texto com sotaque estranho.
@@ -143,10 +143,6 @@
       if (lower.indexOf(keys[i]) !== -1) return timbres[keys[i]];
     }
     return "";
-  }
-
-  function roman(i) {
-    return ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][i] || String(i + 1);
   }
 
   /* -------------------------------------------------------

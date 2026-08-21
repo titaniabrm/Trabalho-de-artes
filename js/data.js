@@ -76,13 +76,14 @@ window.APP_DATA = {
 
       /* --- Como as vozes aparecem no seletor ---
          As vozes vêm do sistema operacional e têm nomes crus ("Daniel",
-         "Maria", "Francisca"…). Aqui elas ganham nomes temáticos da faixa:
-         Abutre I, Abutre II, e assim por diante.
-         `timbres` traduz nomes conhecidos em uma descrição curta; vozes fora
-         da lista aparecem só com o numeral. O nome real do sistema continua
+         "Maria", "Francisca"…). Aqui elas viram Narrador 1, Narrador 2,
+         Narrador 3… numerados automaticamente, quantas o sistema oferecer.
+         `timbres` traduz nomes conhecidos numa descrição curta; quem não
+         estiver na lista recebe `padrao`. O nome real do sistema continua
          visível ao passar o mouse sobre a opção. */
       voiceNames: {
-        base: "Abutre",
+        base: "Narrador",
+        padrao: "voz neutra",
         timbres: {
           daniel:    "voz grave",
           antonio:   "voz grave",
